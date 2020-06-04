@@ -98,4 +98,4 @@ class Person
 end
 
 Bob = Person.new("Bob")
-# binding.pry
+binding.pry
