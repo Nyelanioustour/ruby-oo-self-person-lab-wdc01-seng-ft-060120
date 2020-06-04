@@ -1,11 +1,7 @@
+require 'pry'
 class Person
-    attr_reader :name, :happiness, :hygiene
-    attr_writer :happiness, :hygiene 
-
-
-
- 
-
+    attr_reader :name, :happiness
+    attr_writer :happiness
 
     def initialize(name)
         @name = name
@@ -14,6 +10,49 @@ class Person
         @hygiene = 8
 
     end
+
+    def bank_account
+        @bank_account 
+    end
+
+    def bank_account=(amount)
+        @bank_account = amount
+    end
+
+    def hygiene=(amount)
+        @hygiene = amount
+        if @hygiene > 10
+            @hygiene = 10
+        elsif @hygiene < 0 
+            @hygiene = 0
+        else
+            return @hygiene
+        end
+        @hygiene
+    end
+
+    def hygiene
+        @hygiene
+    end
+
+    def happiness=(amount)
+        @happiness = amount
+        if @happiness > 10
+            @happiness = 10
+        elsif @happiness < 0
+            @happiness = 0
+        else
+            return @happiness
+        end
+        @happiness
+    end
+
+    def happiness
+        @happiness
+    end
+
+
+
 
     def clean?
         self.hygiene > 7
@@ -24,7 +63,7 @@ class Person
     end
 
     def get_paid(salary)
-        self.bank_total += salary
+        self.bank_account += salary
         return "all about the benjamins"
 
     end
@@ -35,7 +74,7 @@ class Person
         if self.hygiene > 10
             self.hygiene = 10
         end
-        return "♪ Rub-a-dub just relaxing in the tub ♫".
+        return "♪ Rub-a-dub just relaxing in the tub ♫"
 
     end
  
@@ -48,5 +87,4 @@ class Person
 end
 
 Bob = Person.new("Bob")
-end
-# binding.pry
+binding.pry
