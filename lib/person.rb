@@ -1,12 +1,15 @@
-require 'pry'
-
 class Person
-    attr_reader :name, :bank_total, :happiness, :hygiene
+    attr_reader :name, :happiness, :hygiene
+    attr_writer :happiness, :hygiene 
+
+
+
+ 
 
 
     def initialize(name)
         @name = name
-        @bank_total = 25
+        @bank_account = 25
         @happiness = 8
         @hygiene = 8
 
@@ -16,27 +19,34 @@ class Person
         self.hygiene > 7
     end
 
-    def clean?
+    def happy?
         self.happiness > 7
     end
 
-    
+    def get_paid(salary)
+        self.bank_total += salary
+        return "all about the benjamins"
+
+    end
 
 
-    # def bank_deposit(amount)
-    #     @bank_total = @bank_total + amount
+    def take_bath
+        self.hygiene += 4
+        if self.hygiene > 10
+            self.hygiene = 10
+        end
+        return "♪ Rub-a-dub just relaxing in the tub ♫".
 
-    # end
+    end
+ 
 
-    # def bank_withdraw(amount)
-    #     @bank_total = @bank_total - amount
 
-    # end
+
 
 
 
 end
 
 Bob = Person.new("Bob")
-
-binding.pry
+end
+# binding.pry
